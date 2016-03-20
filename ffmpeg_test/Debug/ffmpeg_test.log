@@ -1,0 +1,35 @@
+﻿Build started 19-Mar-16 1:58:09 AM.
+     1>Project "C:\Users\naor\documents\visual studio 2013\Projects\ffmpeg_test\ffmpeg_test\ffmpeg_test.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\ffmpeg\dev\include /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\ffmpeg_test.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ffmpeg_test.cpp
+         ffmpeg_test.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\naor\documents\visual studio 2013\Projects\ffmpeg_test\Debug\ffmpeg_test.exe" /INCREMENTAL /NOLOGO /LIBPATH:C:\ffmpeg\dev\lib\ avcodec.lib avdevice.lib avfilter.lib avformat.lib avutil.lib postproc.lib swresample.lib swscale.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\naor\documents\visual studio 2013\Projects\ffmpeg_test\Debug\ffmpeg_test.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\naor\documents\visual studio 2013\Projects\ffmpeg_test\Debug\ffmpeg_test.lib" /MACHINE:X86 Debug\ffmpeg_test.obj
+         Debug\stdafx.obj
+     1>ffmpeg_test.obj : error LNK2019: unresolved external symbol "void * __cdecl av_malloc(unsigned int)" (?av_malloc@@YAPAXI@Z) referenced in function _wmain
+     1>ffmpeg_test.obj : error LNK2019: unresolved external symbol "void __cdecl av_free(void *)" (?av_free@@YAXPAX@Z) referenced in function _wmain
+     1>ffmpeg_test.obj : error LNK2019: unresolved external symbol "struct AVFrame * __cdecl av_frame_alloc(void)" (?av_frame_alloc@@YAPAUAVFrame@@XZ) referenced in function _wmain
+     1>ffmpeg_test.obj : error LNK2019: unresolved external symbol "void __cdecl av_frame_free(struct AVFrame * *)" (?av_frame_free@@YAXPAPAUAVFrame@@@Z) referenced in function _wmain
+     1>ffmpeg_test.obj : error LNK2019: unresolved external symbol "struct AVCodecContext * __cdecl avcodec_alloc_context3(struct AVCodec const *)" (?avcodec_alloc_context3@@YAPAUAVCodecContext@@PBUAVCodec@@@Z) referenced in function _wmain
+     1>ffmpeg_test.obj : error LNK2019: unresolved external symbol "int __cdecl avcodec_copy_context(struct AVCodecContext *,struct AVCodecContext const *)" (?avcodec_copy_context@@YAHPAUAVCodecContext@@PBU1@@Z) referenced in function _wmain
+     1>ffmpeg_test.obj : error LNK2019: unresolved external symbol "int __cdecl avcodec_open2(struct AVCodecContext *,struct AVCodec const *,struct AVDictionary * *)" (?avcodec_open2@@YAHPAUAVCodecContext@@PBUAVCodec@@PAPAUAVDictionary@@@Z) referenced in function _wmain
+     1>ffmpeg_test.obj : error LNK2019: unresolved external symbol "int __cdecl avcodec_close(struct AVCodecContext *)" (?avcodec_close@@YAHPAUAVCodecContext@@@Z) referenced in function _wmain
+     1>ffmpeg_test.obj : error LNK2019: unresolved external symbol "void __cdecl av_packet_unref(struct AVPacket *)" (?av_packet_unref@@YAXPAUAVPacket@@@Z) referenced in function _wmain
+     1>ffmpeg_test.obj : error LNK2019: unresolved external symbol "struct AVCodec * __cdecl avcodec_find_decoder(enum AVCodecID)" (?avcodec_find_decoder@@YAPAUAVCodec@@W4AVCodecID@@@Z) referenced in function _wmain
+     1>ffmpeg_test.obj : error LNK2019: unresolved external symbol "int __cdecl avcodec_decode_video2(struct AVCodecContext *,struct AVFrame *,int *,struct AVPacket const *)" (?avcodec_decode_video2@@YAHPAUAVCodecContext@@PAUAVFrame@@PAHPBUAVPacket@@@Z) referenced in function _wmain
+     1>ffmpeg_test.obj : error LNK2019: unresolved external symbol "void __cdecl av_register_all(void)" (?av_register_all@@YAXXZ) referenced in function _wmain
+     1>ffmpeg_test.obj : error LNK2019: unresolved external symbol "int __cdecl avformat_open_input(struct AVFormatContext * *,char const *,struct AVInputFormat *,struct AVDictionary * *)" (?avformat_open_input@@YAHPAPAUAVFormatContext@@PBDPAUAVInputFormat@@PAPAUAVDictionary@@@Z) referenced in function _wmain
+     1>ffmpeg_test.obj : error LNK2019: unresolved external symbol "int __cdecl avformat_find_stream_info(struct AVFormatContext *,struct AVDictionary * *)" (?avformat_find_stream_info@@YAHPAUAVFormatContext@@PAPAUAVDictionary@@@Z) referenced in function _wmain
+     1>ffmpeg_test.obj : error LNK2019: unresolved external symbol "int __cdecl av_read_frame(struct AVFormatContext *,struct AVPacket *)" (?av_read_frame@@YAHPAUAVFormatContext@@PAUAVPacket@@@Z) referenced in function _wmain
+     1>ffmpeg_test.obj : error LNK2019: unresolved external symbol "void __cdecl avformat_close_input(struct AVFormatContext * *)" (?avformat_close_input@@YAXPAPAUAVFormatContext@@@Z) referenced in function _wmain
+     1>ffmpeg_test.obj : error LNK2019: unresolved external symbol "void __cdecl av_dump_format(struct AVFormatContext *,int,char const *,int)" (?av_dump_format@@YAXPAUAVFormatContext@@HPBDH@Z) referenced in function _wmain
+     1>ffmpeg_test.obj : error LNK2019: unresolved external symbol "struct SwsContext * __cdecl sws_getContext(int,int,enum AVPixelFormat,int,int,enum AVPixelFormat,int,struct SwsFilter *,struct SwsFilter *,double const *)" (?sws_getContext@@YAPAUSwsContext@@HHW4AVPixelFormat@@HH0HPAUSwsFilter@@1PBN@Z) referenced in function _wmain
+     1>ffmpeg_test.obj : error LNK2019: unresolved external symbol "int __cdecl sws_scale(struct SwsContext *,unsigned char const * const * const,int const * const,int,int,unsigned char * const * const,int const * const)" (?sws_scale@@YAHPAUSwsContext@@QBQBEQBHHHQBQAE2@Z) referenced in function _wmain
+     1>ffmpeg_test.obj : error LNK2019: unresolved external symbol "int __cdecl av_image_fill_arrays(unsigned char * * const,int * const,unsigned char const *,enum AVPixelFormat,int,int,int)" (?av_image_fill_arrays@@YAHQAPAEQAHPBEW4AVPixelFormat@@HHH@Z) referenced in function _wmain
+     1>ffmpeg_test.obj : error LNK2019: unresolved external symbol "int __cdecl av_image_get_buffer_size(enum AVPixelFormat,int,int,int)" (?av_image_get_buffer_size@@YAHW4AVPixelFormat@@HHH@Z) referenced in function _wmain
+     1>C:\Users\naor\documents\visual studio 2013\Projects\ffmpeg_test\Debug\ffmpeg_test.exe : fatal error LNK1120: 21 unresolved externals
+     1>Done Building Project "C:\Users\naor\documents\visual studio 2013\Projects\ffmpeg_test\ffmpeg_test\ffmpeg_test.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.35
