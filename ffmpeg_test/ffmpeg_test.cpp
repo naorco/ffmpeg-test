@@ -19,7 +19,8 @@ extern "C"
 #include "opencv2/cudaarithm.hpp"
 #include <iostream>
 
-
+using namespace cv;
+using namespace std;
 
 // tutorial01.c
 // Code based on a tutorial by Martin Bohme (boehme@inb.uni-luebeckREMOVETHIS.de)
@@ -113,11 +114,11 @@ AVFrame cvmat_to_avframe(cv::Mat* frame)
 }
 void FrameProcessAndDisplay(cv::Mat m)
 {
-	cv::cuda::GpuMat d_src, d_dst_bi, d_dst_he, d_dst_bihe, d_tmp;
+	cuda::GpuMat d_src, d_dst_bi, d_dst_he, d_dst_bihe, d_tmp;
 	vector<cuda::GpuMat> d_vec;
 	Mat I = imread("baboon.jpg");
 	if (I.empty())
-		return -1;
+		return;
 	d_src.upload(I);
 	cuda::bilateralFilter(d_src, d_dst_bi, -1, 50, 7);
 	cuda::cvtColor(d_dst_bi, d_tmp, CV_BGR2YCrCb);
@@ -147,7 +148,7 @@ void FrameProcessAndDisplay(cv::Mat m)
 
 	imshow("source", I);
 	if (cvWaitKey() == 27)
-		return 0;
+		return;
 }
 
 
@@ -166,6 +167,7 @@ int _tmain(int argc, const char * argv[])
 	int               videoStream;
 	AVCodecContext    *pCodecCtxOrig = NULL;
 	AVCodecContext    *pCodecCtx = NULL;
+	AVInputFormat	  *fmt = NULL;
 	AVCodec           *pCodec = NULL;
 	AVFrame           *pFrame = NULL;
 	AVFrame           *pFrameRGB = NULL;
@@ -179,13 +181,19 @@ int _tmain(int argc, const char * argv[])
 		printf("Please provide a movie file\n");
 		return -1;
 	}
-	const char *letter = "C:\\Users\\naor\\Documents\\Visual Studio 2013\\Projects\\ffmpeg_test\\x64\\Debug\\flowtutorials.mp4";
+	const char *letter = "udp://224.1.1.1:1234";
+	char * format = "mpegts";
+	fmt = av_find_input_format(format);
 	
 	// Register all formats and codecs
 	av_register_all();
 
+
+	if (avformat_network_init() < 0)
+		return -1;
+
 	// Open video file
-	if (avformat_open_input(&pFormatCtx, letter, NULL, NULL) != 0)
+	if (avformat_open_input(&pFormatCtx, letter, fmt, NULL) != 0)
 		return -1; // Couldn't open file
 
 	// Retrieve stream information
@@ -245,7 +253,7 @@ int _tmain(int argc, const char * argv[])
 		pCodecCtx->width, pCodecCtx->height,1);
 
 	// initialize SWS context for software scaling
-	sws_ctx = sws_getContext(pCodecCtx->width,
+		sws_ctx = sws_getContext(pCodecCtx->width,
 		pCodecCtx->height,
 		pCodecCtx->pix_fmt,
 		pCodecCtx->width,
